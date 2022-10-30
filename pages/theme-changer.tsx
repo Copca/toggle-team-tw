@@ -5,15 +5,9 @@ import { useTheme } from 'next-themes';
 import { Layout } from '../components/layouts/Layout';
 
 const ThemeChanger: NextPage = () => {
-	const { systemTheme, theme, setTheme } = useTheme();
-	const [currentTheme, setCurrentTheme] = useState('');
-
-	useEffect(() => {
-		setCurrentTheme(theme === 'system' ? systemTheme! : theme!);
-	}, [systemTheme, theme]);
+	const { theme, setTheme } = useTheme();
 
 	const onChangeTheme = (e: ChangeEvent<HTMLInputElement>) => {
-		setCurrentTheme(e.target.value);
 		setTheme(e.target.value);
 	};
 
